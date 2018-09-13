@@ -551,9 +551,14 @@ $tx_news_domain_model_news = [
             'exclude' => true,
             'label' => $ll . 'tx_news_domain_model_news.path_segment',
             'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'nospace,alphanum_x,lower,unique',
+                'type' => 'slug',
+                'size' => 50,
+                'generatorOptions' => [
+                    'fields' => ['title']
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'unique',
+                'default' => ''
             ]
         ],
         'import_id' => [
